@@ -1,0 +1,63 @@
+
+Command Structure:
+
+ID: 0x01
+
+Bit 0 & 1: Device number:
+
+  1 to 255 avalible, using 2 hex bits
+  0 = State of all relays
+
+Bit 2: Request:
+
+  1 = Request current state
+    Bit 3 - 5: ID
+
+    Bit 6 & 7: Not used
+
+
+  2 = Current state
+    Bit 3 - 7: Value
+
+    Bit 3 - 7 = F: ERROR
+
+
+  3 = State change request
+    Bit 3 - 5: ID
+
+    Bit 6 & 7: Delay multiplyer
+
+    Bit 6 & 7: Action:
+
+      0 = OFF
+      1 = ON
+      2 = Flip state
+
+      3 = Delay 1 sec * Bit 6
+      4 = Delay 5 sec * Bit 6
+      5 = Delay 10 sec * Bit 6
+      6 = Delay 30 sec * Bit 6
+      7 = Delay 1 min * Bit 6
+      8 = Delay 5 min * Bit 6
+
+      F = All OFF
+
+      // ######### Relay Board 1 #########
+      // Relay 1 -- 22 // Old lights
+      // Relay 2 -- 23 // Main Lights
+      // Relay 3 -- 24 // Red lights
+      // Relay 4 -- 25 // USB Chargers & 12v plugs
+      // Relay 5 -- 26 // Blower
+      // Relay 6 -- 27 // Bilge pump
+      // Relay 7 -- 28 // 230v plugs switching between inveter and generator
+      // Relay 8 -- 29 // Inverter 230v
+
+      // ######### Relay Board 2 #########
+      // Relay 9 -- 30 // --- Not used ---
+      // Relay 10 -- 31 // --- Not used ---
+      // Relay 11 -- 32 // --- Not used ---
+      // Relay 12 -- 33 // --- Not used ---
+      // Relay 13 -- 34 // --- Not used ---
+      // Relay 14 -- 35 // --- Not used ---
+      // Relay 15 -- 36 // Back - Lights
+      // Relay 16 -- 37 // Router
